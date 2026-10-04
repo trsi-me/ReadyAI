@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة الإدارة - منصة الاستعداد لاختبار الجاهزية</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="page-sub" data-title-i18n="meta_title_admin">
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <span class="official-badge" data-i18n="badge_sub">منصة تعليمية رسمية — جامعة الحدود الشمالية — كلية العلوم، علوم الحاسب</span>
+            <img src="../assets/images/nbulogo.png" alt="" data-i18n-alt="img_alt_nbu" class="nbu-logo" width="180" height="46">
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-content">
+            <a href="../index.html" class="logo-section">
+                <img src="../assets/images/Logo.jpg" alt="" data-i18n-alt="img_alt_site" class="site-logo">
+                <div class="logo-text">
+                    <span class="logo-title" data-i18n="site_brand">منصة الاستعداد لاختبار الجاهزية</span>
+                    <span class="logo-subtitle" data-i18n="logo_subtitle">READINESS TEST PREPARATION PLATFORM</span>
+                </div>
+            </a>
+            <div class="header-nav-wrap">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html" data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="../index.html#about-test" data-i18n="nav_about">نبذة عن الاختبار</a></li>
+                        <li><a href="standards.html" data-i18n="nav_programs">التخصصات</a></li>
+                        <li><a href="domains.html" data-i18n="nav_domains">مجالات اختبار الجاهزية</a></li>
+                        <li><a href="../index.html#services" data-i18n="nav_services">الخدمات</a></li>
+                        <li><a href="resources.html" data-i18n="nav_resources">مصادر تعليمية</a></li>
+                        <li><a href="test.html" data-i18n="nav_tests">نماذج</a></li>
+                        <li><a href="team.html" data-i18n="nav_team">من نحن</a></li>
+                        <li><a href="faculty.html" data-i18n="nav_faculty">أعضاء هيئة التدريس</a></li>
+                        <li><a href="../index.html#contact" data-i18n="nav_contact">تواصل معنا</a></li>
+                        <li><a href="auth.html" data-i18n="nav_account">حسابي</a></li>
+                    </ul>
+                </nav>
+                <button type="button" class="btn-lang" data-lang-toggle>English</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div id="admin-gate" class="admin-gate container">
+            <p class="text-muted" data-i18n="admin_loading">جاري التحقق من الصلاحيات…</p>
+        </div>
+
+        <div id="admin-need-server" class="admin-gate container" style="display: none;">
+            <p class="text-muted" data-i18n="admin_need_server">شغّل الموقع عبر خادم Flask لاستخدام لوحة الإدارة.</p>
+        </div>
+
+        <div id="admin-need-login" class="admin-gate container" style="display: none;">
+            <p><span data-i18n="admin_need_login">يجب تسجيل الدخول بحساب مسؤول.</span>
+                <a href="auth.html" data-i18n="nav_account">حسابي</a></p>
+        </div>
+
+        <div id="admin-forbidden" class="admin-gate container" style="display: none;">
+            <p data-i18n="admin_forbidden_page">ليس لديك صلاحية الوصول إلى لوحة الإدارة.</p>
+            <p><a href="../index.html" data-i18n="admin_back_home">العودة للرئيسية</a></p>
+        </div>
+
+        <div id="admin-app" class="admin-app container" style="display: none;">
+            <div class="admin-head">
+                <div>
+                    <h1 data-i18n="admin_title">لوحة الإدارة</h1>
+                    <p class="text-muted admin-head-sub" data-i18n="admin_subtitle">إحصاءات المستخدمين والمحاولات وعرض تفاصيل النتائج.</p>
+                </div>
+                <div class="admin-head-actions">
+                    <button type="button" class="btn btn-secondary" id="admin-refresh" data-i18n="admin_refresh">تحديث</button>
+                    <a href="../index.html" class="btn btn-outline" data-i18n="admin_back_home">الرئيسية</a>
+                </div>
+            </div>
+
+            <p class="admin-demo-hint text-muted" data-i18n="admin_demo_hint">حسابات تجريبية: مسؤول admin@readyai.local / Admin123! — مستخدم demo@readyai.local / Demo123!</p>
+
+            <section class="admin-section" aria-labelledby="kpi-heading">
+                <h2 id="kpi-heading" class="admin-section-title" data-i18n="admin_kpi_title">نظرة عامة</h2>
+                <div class="admin-kpi-grid">
+                    <div class="admin-kpi">
+                        <div class="admin-kpi-value" id="kpi-users">0</div>
+                        <div class="admin-kpi-label" data-i18n="admin_stat_users">المستخدمون</div>
+                    </div>
+                    <div class="admin-kpi">
+                        <div class="admin-kpi-value" id="kpi-attempts">0</div>
+                        <div class="admin-kpi-label" data-i18n="admin_stat_attempts">المحاولات</div>
+                    </div>
+                    <div class="admin-kpi">
+                        <div class="admin-kpi-value" id="kpi-full">0</div>
+                        <div class="admin-kpi-label" data-i18n="admin_stat_full">اختبار كامل</div>
+                    </div>
+                    <div class="admin-kpi">
+                        <div class="admin-kpi-value" id="kpi-unit">0</div>
+                        <div class="admin-kpi-label" data-i18n="admin_stat_unit">وحدة</div>
+                    </div>
+                    <div class="admin-kpi">
+                        <div class="admin-kpi-value" id="kpi-guest">0</div>
+                        <div class="admin-kpi-label" data-i18n="admin_stat_guest">محاولات بدون حساب</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="admin-section" aria-labelledby="dist-heading">
+                <h2 id="dist-heading" class="admin-section-title" data-i18n="admin_dist_title">توزيع الدرجات (اختبار كامل)</h2>
+                <p class="text-muted admin-dist-note"><span data-i18n="admin_dist_total_label">عدد المحاولات الكاملة:</span> <strong id="dist-total">0</strong></p>
+                <div class="admin-dist-row">
+                    <span class="admin-dist-item"><span data-i18n="legend_total_weak">ضعيف</span>: <strong id="dist-weak">0</strong></span>
+                    <span class="admin-dist-item"><span data-i18n="legend_total_med">متوسط</span>: <strong id="dist-med">0</strong></span>
+                    <span class="admin-dist-item"><span data-i18n="legend_total_strong">قوي</span>: <strong id="dist-strong">0</strong></span>
+                </div>
+            </section>
+
+            <section class="admin-section" aria-labelledby="recent-heading">
+                <h2 id="recent-heading" class="admin-section-title" data-i18n="admin_recent">آخر المحاولات</h2>
+                <div class="admin-table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="admin_th_id">#</th>
+                                <th data-i18n="admin_th_user">المستخدم</th>
+                                <th data-i18n="admin_th_mode">الوضع</th>
+                                <th data-i18n="admin_th_score">الدرجة</th>
+                                <th data-i18n="admin_th_date">التاريخ</th>
+                                <th data-i18n="admin_th_detail">تفاصيل</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="admin-section" aria-labelledby="users-heading">
+                <h2 id="users-heading" class="admin-section-title" data-i18n="admin_users_title">المستخدمون</h2>
+                <div class="admin-toolbar">
+                    <input type="search" class="auth-input admin-search-input" id="users-q" placeholder="">
+                    <button type="button" class="btn btn-primary" id="users-search" data-i18n="admin_search_btn">بحث</button>
+                </div>
+                <div class="admin-table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="admin_th_id">#</th>
+                                <th data-i18n="auth_email">البريد</th>
+                                <th data-i18n="auth_name">الاسم</th>
+                                <th data-i18n="admin_th_role">الدور</th>
+                                <th data-i18n="admin_th_date">تاريخ التسجيل</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-tbody"></tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn btn-secondary mt-2" id="users-more" style="display: none;" data-i18n="admin_load_more">المزيد</button>
+            </section>
+
+            <section class="admin-section" aria-labelledby="attempts-heading">
+                <h2 id="attempts-heading" class="admin-section-title" data-i18n="admin_attempts_title">كل المحاولات</h2>
+                <div class="admin-toolbar">
+                    <label class="admin-filter-label"><span data-i18n="admin_filter_label">تصفية</span>
+                        <select id="attempt-filter" class="auth-input admin-select">
+                            <option value="" data-i18n="admin_filter_all">الكل</option>
+                            <option value="full" data-i18n="admin_filter_full">كامل</option>
+                            <option value="unit" data-i18n="admin_filter_unit">وحدة</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="admin-table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="admin_th_id">#</th>
+                                <th data-i18n="admin_th_user">المستخدم</th>
+                                <th data-i18n="admin_th_mode">الوضع</th>
+                                <th data-i18n="admin_th_score">الدرجة</th>
+                                <th data-i18n="admin_th_date">التاريخ</th>
+                                <th data-i18n="admin_th_detail">تفاصيل</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attempts-tbody"></tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn btn-secondary mt-2" id="attempts-more" style="display: none;" data-i18n="admin_load_more">المزيد</button>
+            </section>
+        </div>
+    </main>
+
+    <div id="admin-modal" class="admin-modal" aria-hidden="true" role="dialog" aria-labelledby="admin-modal-title">
+        <div class="admin-modal-backdrop" id="admin-modal-backdrop"></div>
+        <div class="admin-modal-panel">
+            <div class="admin-modal-head">
+                <h3 id="admin-modal-title" data-i18n="admin_detail_title">تفاصيل المحاولة (JSON)</h3>
+                <button type="button" class="btn btn-secondary btn-sm" id="admin-modal-close" data-i18n="admin_close">إغلاق</button>
+            </div>
+            <pre class="admin-json-pre" id="admin-json-pre"></pre>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footer_copy">منصة الاستعداد لاختبار الجاهزية © جامعة الحدود الشمالية — كلية العلوم، علوم الحاسب</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/i18n.js"></script>
+    <script src="../assets/js/nav-admin.js"></script>
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>
