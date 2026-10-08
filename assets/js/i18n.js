@@ -24,7 +24,7 @@
             admin_subtitle: 'إحصاءات المستخدمين والمحاولات وعرض تفاصيل النتائج.',
             admin_refresh: 'تحديث',
             admin_demo_hint:
-                'حسابات تجريبية: مسؤول admin@readyai.local / Admin123! — مستخدم demo@readyai.local / Demo123!',
+                'حسابات تجريبية: مسؤول admin@readyai.local — مستخدم demo@readyai.local',
             admin_kpi_title: 'نظرة عامة',
             admin_stat_users: 'المستخدمون',
             admin_stat_attempts: 'المحاولات',
@@ -352,7 +352,7 @@
             admin_subtitle: 'User and attempt statistics with full result details.',
             admin_refresh: 'Refresh',
             admin_demo_hint:
-                'Demo accounts: admin admin@readyai.local / Admin123! — user demo@readyai.local / Demo123!',
+                'Demo accounts: admin admin@readyai.local — user demo@readyai.local',
             admin_kpi_title: 'Overview',
             admin_stat_users: 'Users',
             admin_stat_attempts: 'Attempts',

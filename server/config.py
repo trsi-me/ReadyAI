@@ -9,4 +9,4 @@ MODEL_PATH = Path(__file__).resolve().parent / "models" / "readiness_model.jobli
 DATA_DIR = Path(__file__).resolve().parent / "data"
 EXAM_CORRECT_PATH = DATA_DIR / "exam_bank_correct.json"
 
-SECRET_KEY = "dev-change-in-production-use-env"  # استبدل في الإنتاج بمتغير بيئة
+SECRET_KEY = ""  # استبدل في الإنتاج بمتغير بيئة

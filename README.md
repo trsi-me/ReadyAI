@@ -225,8 +225,8 @@ SQLite ملف واحد. `init_db()` ينشئ المجلد والجداول وت�
 
 | البريد | كلمة المرور | الاسم | is_admin |
 | --- | --- | --- | --- |
-| admin@readyai.local | Admin123! | مسؤول النظام | 1 |
-| demo@readyai.local | Demo123! | مستخدم تجريبي | 0 |
+| admin@readyai.local | ! | مسؤول النظام | 1 |
+| demo@readyai.local |  | مستخدم تجريبي | 0 |
 
 عند كل تشغيل تُحدَّث هذه العناوين لتطابق البذرة. في إنتاج حقيقي غيّر الكلمات أو عطّل البذور واستبدل `SECRET_KEY`.
 
@@ -376,8 +376,8 @@ python app.py
 | التشغيل | `python app.py` داخل `server` |
 | الرابط | http://127.0.0.1:5000/ |
 | القاعدة | `server/instance/readiness.db` |
-| مسؤول التجربة | admin@readyai.local / Admin123! |
-| مستخدم التجربة | demo@readyai.local / Demo123! |
+| مسؤول التجربة | admin@readyai.local |
+| مستخدم التجربة | demo@readyai.local /  |
 | أسئلة الكامل | 60 |
 | معيار واحد | 3 عبر `?unit=N` |
 | العلم | `USE_FLASK_API` في `assets/js/config.js` |

@@ -7,8 +7,8 @@ from config import DB_PATH
 
 # حسابات افتراضية للتجربة — تُطبَّق مرة واحدة لكل عملية خادم (أول init_db).
 DEFAULT_ACCOUNTS = (
-    ("admin@readyai.local", "Admin123!", "مسؤول النظام", 1),
-    ("demo@readyai.local", "Demo123!", "مستخدم تجريبي", 0),
+    ("admin@readyai.local", "", "مسؤول النظام", 1),
+    ("demo@readyai.local", "", "مستخدم تجريبي", 0),
 )
 
 _seed_applied = False
